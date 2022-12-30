@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEMV_Dispencer_V1", "SEMV_Dispencer_V1.csproj", "{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEMV_Display_Needle", "..\SEMV_Display_Needle\SEMV_Display_Needle.csproj", "{2DF58D8E-5962-4429-BCE0-24D2547799F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Debug|x64.ActiveCfg = Debug|x64
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Debug|x64.Build.0 = Debug|x64
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Release|x64.ActiveCfg = Release|x64
+		{7A41A062-C0D1-4B6A-A731-3B6ED1E2C485}.Release|x64.Build.0 = Release|x64
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Debug|x64.Build.0 = Debug|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Release|x64.ActiveCfg = Release|Any CPU
+		{2DF58D8E-5962-4429-BCE0-24D2547799F0}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0940F24C-CE1D-4F83-8352-0BD8F9654552}
+	EndGlobalSection
+EndGlobal

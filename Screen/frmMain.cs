@@ -11,11 +11,8 @@ namespace SEMV_Dispencer_V1.Screen
     public partial class frmMain : Form
     {
         private int accessIndex = 0;
-        //private CvsInSight _camIS;
         private Process p;
         public static bool ChoosePrdForm = false;
-        //[System.Runtime.InteropServices.DllImport("user32.dll")]
-        //static extern IntPtr SetParent(IntPtr hWnd, IntPtr hParent);
         public frmMain()
         {
             Cognex.InSight.CvsInSightSoftwareDevelopmentKit.Initialize();
@@ -27,9 +24,10 @@ namespace SEMV_Dispencer_V1.Screen
         }
         private void cMain_Load(object sender, EventArgs e)
         {
-            timer1.Interval = 2000;
+            RunProgram.Instance._timerAsynce.Start();
+            RunProgram.Instance._timerCheckPLCSignal.Start();
+            timer1.Interval = 200;
             timer1.Enabled = true;
-            //DisplayASCamera();
         }
         private void DisplayASCamera()
         {
@@ -37,7 +35,7 @@ namespace SEMV_Dispencer_V1.Screen
             {
                 try
                 {
-                    string files = Path.Combine(RunProgram.AsApp.FileName);
+                    string files = Path.Combine(RunProgram.AsApp);
                     p = Process.Start(files);
                     p.WaitForInputIdle();
                     while (p.MainWindowHandle == IntPtr.Zero)
@@ -64,7 +62,6 @@ namespace SEMV_Dispencer_V1.Screen
             }
             catch
             { }
-
             //IsDisplay.Disconnect();
 
         }
@@ -102,19 +99,9 @@ namespace SEMV_Dispencer_V1.Screen
             }    
 
         }
-        private void tsTestMode_Click(object sender, EventArgs e)
-        {
-            if (RunProgram.AccessLevel > 1)
-            {
-                frmModelTest frm = new frmModelTest();
-                frm.Show();
-            }
-            else MessageBox.Show("Please Access with Master!", "Access", MessageBoxButtons.OK, MessageBoxIcon.Question);
-        }
-
         private void frmLimit_Click(object sender, EventArgs e)
         {
-            if (RunProgram.AccessLevel > 0)
+            if (RunProgram.AccessLevel > 0 && !frmTeachingLimit._open)
             {
                 frmTeachingLimit frm = new frmTeachingLimit();
                 frm.Show();
@@ -123,7 +110,7 @@ namespace SEMV_Dispencer_V1.Screen
         }
         private void tsSettingModel_Click(object sender, EventArgs e)
         {
-            if (RunProgram.AccessLevel > 0)
+            if (RunProgram.AccessLevel > 0 && !Screen.frmTeachingModel._open)
             {
                 frmTeachingModel frm = new frmTeachingModel();
                 frm.Show();
@@ -139,17 +126,17 @@ namespace SEMV_Dispencer_V1.Screen
         }
         private void tsMaster_Click(object sender, EventArgs e)
         {
-            if (RunProgram.AccessLevel > 1)
+            if (RunProgram.AccessLevel > 1 && !frmMaster._open)
             {
                 frmMaster frm = new frmMaster();
-                frm.ShowDialog();
+                frm.Show();
             }
             else MessageBox.Show("Please Access with Master!", "Access", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
         }
         private void tsData_Click(object sender, EventArgs e)
         {
-            if (RunProgram.AccessLevel > 1)
+            if (RunProgram.AccessLevel > 1 && !frmTeachingData._open)
             {
                 frmTeachingData frm = new frmTeachingData();
                 frm.Show();
@@ -267,45 +254,11 @@ namespace SEMV_Dispencer_V1.Screen
 
         private void btnZoomOut_Click(object sender, EventArgs e)
         {
-            if (cvsInSightDisplay != null)
-            {
-                cvsInSightDisplay.ImageZoomMode = Cognex.InSight.Controls.Display.CvsDisplayZoom.None;
-                cvsInSightDisplay.ImageScale -= 0.05;
-            }
-               
+
         }
         private void btRotateLeft_Click(object sender, EventArgs e)
         {
-            try
-            {
-                switch (cvsInSightDisplay.ImageOrientation)
-                {
-                    case CvsImageOrientation.Normal:
-                        {
-                            cvsInSightDisplay.ImageOrientation = CvsImageOrientation.RotateClockwise90;
-                            break;
-                        }
-                    case CvsImageOrientation.RotateClockwise90:
-                        {
-                            cvsInSightDisplay.ImageOrientation = CvsImageOrientation.Rotate180;
-                            break;
-                        }
-                    case CvsImageOrientation.Rotate180:
-                        {
-                            cvsInSightDisplay.ImageOrientation = CvsImageOrientation.RotateCounterclockwise90;
-                            break;
-                        }
-                    case CvsImageOrientation.RotateCounterclockwise90:
-                        {
-                            cvsInSightDisplay.ImageOrientation = CvsImageOrientation.Normal;
-                            break;
-                        }
-                }
-            }
-            catch
-            {
 
-            }
         }
 
         private void btRotateRight_Click(object sender, EventArgs e)
@@ -386,7 +339,7 @@ namespace SEMV_Dispencer_V1.Screen
             //StatusBar1.Panels[1].Text = cvsInSightDisplay.StatusInformation;
         }
         #endregion
-        private void LoadModelName()
+        public void LoadModelName()
         {
             tsChooseModel.Items.Clear();
             int activeModel = 0;
@@ -466,6 +419,15 @@ namespace SEMV_Dispencer_V1.Screen
         {
             DeviceConnection.cCameraIS.nowCommand = DeviceConnection.ISCommand.None;
             DeviceConnection.cCameraIS.ReadBMP();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (frmTeachingModel._change && !frmTeachingModel._open)
+            {
+                LoadModelName();
+                frmTeachingModel._change = false;
+            }
         }
     }
 }

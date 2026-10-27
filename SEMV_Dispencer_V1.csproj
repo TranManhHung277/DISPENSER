@@ -8,11 +8,29 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SEMV_Dispencer_V1</RootNamespace>
     <AssemblyName>SEMV_Dispencer_V1</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\TADA\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/SEMV_Dispencer_V1/</UpdateUrl>
+    <ProductName>SEMV Dispencer V2</ProductName>
+    <PublisherName>TADA</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +70,9 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainSofta.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cognex.InSight, Version=6.1.1.3, Culture=neutral, PublicKeyToken=6b9774afddb09935, processorArchitecture=MSIL">
@@ -184,12 +205,6 @@
     <Compile Include="Screen\frmAccess.Designer.cs">
       <DependentUpon>frmAccess.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screen\frmAdjustPosition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\frmAdjustPosition.Designer.cs">
-      <DependentUpon>frmAdjustPosition.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screen\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,12 +216,6 @@
     </Compile>
     <Compile Include="Screen\frmMaster.Designer.cs">
       <DependentUpon>frmMaster.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screen\frmModelTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\frmModelTest.Designer.cs">
-      <DependentUpon>frmModelTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen\frmProduct1.cs">
       <SubType>Form</SubType>
@@ -288,17 +297,11 @@
     <EmbeddedResource Include="Screen\frmAccess.resx">
       <DependentUpon>frmAccess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screen\frmAdjustPosition.resx">
-      <DependentUpon>frmAdjustPosition.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screen\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\frmMaster.resx">
       <DependentUpon>frmMaster.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screen\frmModelTest.resx">
-      <DependentUpon>frmModelTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\frmProduct1.resx">
       <DependentUpon>frmProduct1.cs</DependentUpon>
@@ -406,6 +409,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ImageSource\Zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainSofta.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

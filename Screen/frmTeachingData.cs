@@ -19,6 +19,7 @@ namespace SEMV_Dispencer_V1.Screen
             InitializeComponent();
         }
         private int _index;
+        public static bool _open = false;
         private void frmMaster_Load(object sender, EventArgs e)
         {
             //LoadData();
@@ -27,6 +28,7 @@ namespace SEMV_Dispencer_V1.Screen
             dgvModels.AllowUserToAddRows = false;
             btAdd.Enabled = RunProgram.AccessLevel == 2 ? true : false;
             btDelete.Enabled = RunProgram.AccessLevel == 2 ? true : false;
+            _open = true;   
         }
         private void LoadDataTable()
         {
@@ -122,7 +124,7 @@ namespace SEMV_Dispencer_V1.Screen
                         
                     }
                 }
-                //RunProgram.SendMotorData();
+                RunProgram.SendMotorData();
             }
                 
 
@@ -179,10 +181,11 @@ namespace SEMV_Dispencer_V1.Screen
                     }
                 }
                 RunProgram.SendMotorData();
+                _open = false;
             }
             else if (result == DialogResult.No)
             {
-
+                _open = false;
             }
             else e.Cancel = true;
         }

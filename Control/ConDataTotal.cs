@@ -20,7 +20,7 @@ namespace SEMV_Dispencer_V1.Control
             RunProgram.Instance.OnStartUp += On_Load;
             On_Event();
         }
-        private async void On_Load()
+        private void On_Load()
         {
             UIControl.UILabel.Int32Label(lbZ, RunProgram._readPLC, 4036, 1);
             UIControl.UILabel.Int32Label(lbX, RunProgram._readPLC, 4038, 1);
@@ -33,7 +33,7 @@ namespace SEMV_Dispencer_V1.Control
             UIControl.UILabel.Int32Label(lbPrdX2, RunProgram._readPLC, 4008, 100);
             UIControl.UILabel.Int32Label(lbPrdY2, RunProgram._readPLC, 4010, 100);
             nudOffsetZ.Value = Convert.ToDecimal(RunProgram.Data.OffsetZ);
-            await UIControl.UIButton.MomenteryLabel(lbClear, RunProgram._readPLC, 3800,10);
+            UIControl.UIButton.MomenteryLabel(lbClear, RunProgram._readPLC, 3800,10);
           
 
         }

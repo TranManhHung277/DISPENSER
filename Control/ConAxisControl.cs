@@ -18,20 +18,20 @@ namespace SEMV_Dispencer_V1.Control
             RunProgram.Instance.OnStartUp += On_Load;
             On_Event();
         }
-        private async void On_Load()
+        private void On_Load()
         {
-            await UIControl.UIButton.MomenteryButton(btX1, RunProgram._readPLC, 3805, 0);
-            await UIControl.UIButton.MomenteryButton(btX2, RunProgram._readPLC, 3805, 1);
-            await UIControl.UIButton.MomenteryButton(btY1, RunProgram._readPLC, 3805, 2);
-            await UIControl.UIButton.MomenteryButton(btY2, RunProgram._readPLC, 3805, 3);
-            await UIControl.UIButton.MomenteryButton(btZ1, RunProgram._readPLC, 3805, 4);
-            await UIControl.UIButton.MomenteryButton(btZ2, RunProgram._readPLC, 3805, 5);
+             UIControl.UIButton.MomenteryButton(btX1, RunProgram._readPLC, 3805, 0);
+             UIControl.UIButton.MomenteryButton(btX2, RunProgram._readPLC, 3805, 1);
+             UIControl.UIButton.MomenteryButton(btY1, RunProgram._readPLC, 3805, 2);
+             UIControl.UIButton.MomenteryButton(btY2, RunProgram._readPLC, 3805, 3);
+             UIControl.UIButton.MomenteryButton(btZ1, RunProgram._readPLC, 3805, 4);
+             UIControl.UIButton.MomenteryButton(btZ2, RunProgram._readPLC, 3805, 5);
 
-            await UIControl.UIButton.MaintainButton(bt001, RunProgram._readPLC, 3805, 7);
-            await UIControl.UIButton.MaintainButton(bt01, RunProgram._readPLC, 3805, 8);
-            await UIControl.UIButton.MaintainButton(bt1, RunProgram._readPLC, 3805, 9);
-            await UIControl.UIButton.MaintainButton(btMode, RunProgram._readPLC, 3805, 6);
-            await UIControl.UIButton.MaintainButton(btSpeed, RunProgram._readPLC, 3805, 10);
+             UIControl.UIButton.MaintainButton(bt001, RunProgram._readPLC, 3805, 7);
+             UIControl.UIButton.MaintainButton(bt01, RunProgram._readPLC, 3805, 8);
+             UIControl.UIButton.MaintainButton(bt1, RunProgram._readPLC, 3805, 9);
+             UIControl.UIButton.MaintainButton(btMode, RunProgram._readPLC, 3805, 6);
+             UIControl.UIButton.MaintainButton(btSpeed, RunProgram._readPLC, 3805, 10);
         }
         private void On_Event()
         {

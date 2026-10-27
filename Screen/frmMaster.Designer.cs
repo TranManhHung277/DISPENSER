@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMaster));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.conMasterControl1 = new SEMV_Dispencer_V1.Control.ConMasterControl();
+            this.conMainControl1 = new SEMV_Dispencer_V1.Control.ConMainControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvModels = new System.Windows.Forms.DataGridView();
             this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,15 +44,22 @@
             this.c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conMasterControl1 = new SEMV_Dispencer_V1.Control.ConMasterControl();
-            this.conMainControl1 = new SEMV_Dispencer_V1.Control.ConMainControl();
-            this.btLoad = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.conModelTest1 = new SEMV_Dispencer_V1.Control.ConModelTest();
             this.conCoordinate1 = new SEMV_Dispencer_V1.Control.ConCoordinate();
             this.conAxisControl1 = new SEMV_Dispencer_V1.Control.ConAxisControl();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btSave = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btLoad = new System.Windows.Forms.Button();
+            this.btnCalibNeedle = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,7 +72,7 @@
             this.tableLayoutPanel1.Controls.Add(this.conAxisControl1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -81,9 +90,10 @@
             this.tableLayoutPanel2.Controls.Add(this.btDelete, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btLoad, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnCalibNeedle, 1, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 2);
@@ -97,58 +107,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(853, 412);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // btAdd
-            // 
-            this.btAdd.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.edit;
-            this.btAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btAdd.Location = new System.Drawing.Point(810, 2);
-            this.btAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(41, 45);
-            this.btAdd.TabIndex = 1;
-            this.btAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
-            // 
-            // btSave
-            // 
-            this.btSave.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.save;
-            this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btSave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btSave.Location = new System.Drawing.Point(810, 51);
-            this.btSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(41, 45);
-            this.btSave.TabIndex = 1;
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // btDelete
-            // 
-            this.btDelete.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.delete;
-            this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btDelete.Location = new System.Drawing.Point(810, 100);
-            this.btDelete.Margin = new System.Windows.Forms.Padding(2);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(41, 45);
-            this.btDelete.TabIndex = 1;
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.dgvModels, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.conMasterControl1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.conMainControl1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tabControl1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel2.SetRowSpan(this.tableLayoutPanel3, 7);
@@ -156,6 +126,49 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(804, 408);
             this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // conMasterControl1
+            // 
+            this.conMasterControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.conMasterControl1.Location = new System.Drawing.Point(2, 248);
+            this.conMasterControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.conMasterControl1.Name = "conMasterControl1";
+            this.conMasterControl1.Size = new System.Drawing.Size(700, 158);
+            this.conMasterControl1.TabIndex = 2;
+            // 
+            // conMainControl1
+            // 
+            this.conMainControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.conMainControl1.Location = new System.Drawing.Point(706, 248);
+            this.conMainControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.conMainControl1.Name = "conMainControl1";
+            this.conMainControl1.Size = new System.Drawing.Size(96, 158);
+            this.conMainControl1.TabIndex = 3;
+            // 
+            // tabControl1
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.tabControl1, 2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(800, 242);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvModels);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(792, 216);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Master Data";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgvModels
             // 
@@ -169,15 +182,14 @@
             this.c5,
             this.c6,
             this.c7});
-            this.tableLayoutPanel3.SetColumnSpan(this.dgvModels, 2);
             this.dgvModels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvModels.Location = new System.Drawing.Point(2, 2);
-            this.dgvModels.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvModels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvModels.Name = "dgvModels";
             this.dgvModels.RowHeadersWidth = 51;
             this.dgvModels.RowTemplate.Height = 24;
-            this.dgvModels.Size = new System.Drawing.Size(800, 242);
-            this.dgvModels.TabIndex = 1;
+            this.dgvModels.Size = new System.Drawing.Size(788, 212);
+            this.dgvModels.TabIndex = 2;
             this.dgvModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModels_CellClick);
             // 
             // c1
@@ -237,36 +249,25 @@
             this.c7.Name = "c7";
             this.c7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // conMasterControl1
+            // tabPage2
             // 
-            this.conMasterControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.conMasterControl1.Location = new System.Drawing.Point(2, 248);
-            this.conMasterControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.conMasterControl1.Name = "conMasterControl1";
-            this.conMasterControl1.Size = new System.Drawing.Size(700, 158);
-            this.conMasterControl1.TabIndex = 2;
+            this.tabPage2.Controls.Add(this.conModelTest1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(792, 216);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Model Test Run";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // conMainControl1
+            // conModelTest1
             // 
-            this.conMainControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.conMainControl1.Location = new System.Drawing.Point(706, 248);
-            this.conMainControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.conMainControl1.Name = "conMainControl1";
-            this.conMainControl1.Size = new System.Drawing.Size(96, 158);
-            this.conMainControl1.TabIndex = 3;
-            // 
-            // btLoad
-            // 
-            this.btLoad.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.timg11;
-            this.btLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btLoad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btLoad.Location = new System.Drawing.Point(810, 149);
-            this.btLoad.Margin = new System.Windows.Forms.Padding(2);
-            this.btLoad.Name = "btLoad";
-            this.btLoad.Size = new System.Drawing.Size(41, 45);
-            this.btLoad.TabIndex = 1;
-            this.btLoad.UseVisualStyleBackColor = true;
-            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
+            this.conModelTest1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.conModelTest1.Location = new System.Drawing.Point(2, 2);
+            this.conModelTest1.Name = "conModelTest1";
+            this.conModelTest1.Size = new System.Drawing.Size(788, 212);
+            this.conModelTest1.TabIndex = 0;
             // 
             // conCoordinate1
             // 
@@ -286,13 +287,80 @@
             this.conAxisControl1.Size = new System.Drawing.Size(221, 250);
             this.conAxisControl1.TabIndex = 1;
             // 
+            // btAdd
+            // 
+            this.btAdd.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.edit;
+            this.btAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btAdd.Location = new System.Drawing.Point(810, 2);
+            this.btAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(41, 45);
+            this.btAdd.TabIndex = 1;
+            this.btAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // btSave
+            // 
+            this.btSave.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.save;
+            this.btSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btSave.Location = new System.Drawing.Point(810, 51);
+            this.btSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(41, 45);
+            this.btSave.TabIndex = 1;
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.delete;
+            this.btDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btDelete.Location = new System.Drawing.Point(810, 100);
+            this.btDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(41, 45);
+            this.btDelete.TabIndex = 1;
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btLoad
+            // 
+            this.btLoad.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.timg11;
+            this.btLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btLoad.Location = new System.Drawing.Point(810, 149);
+            this.btLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btLoad.Name = "btLoad";
+            this.btLoad.Size = new System.Drawing.Size(41, 45);
+            this.btLoad.TabIndex = 1;
+            this.btLoad.UseVisualStyleBackColor = true;
+            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
+            // 
+            // btnCalibNeedle
+            // 
+            this.btnCalibNeedle.BackgroundImage = global::SEMV_Dispencer_V1.Properties.Resources.tải_xuống;
+            this.btnCalibNeedle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCalibNeedle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalibNeedle.Location = new System.Drawing.Point(810, 198);
+            this.btnCalibNeedle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCalibNeedle.Name = "btnCalibNeedle";
+            this.btnCalibNeedle.Size = new System.Drawing.Size(41, 45);
+            this.btnCalibNeedle.TabIndex = 1;
+            this.btnCalibNeedle.UseVisualStyleBackColor = true;
+            this.btnCalibNeedle.Click += new System.EventHandler(this.btnCalibNeedle_Click);
+            // 
             // frmMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 416);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMaster";
             this.Text = "Master Screen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTeachingModel_FormClosing);
@@ -300,7 +368,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,6 +387,10 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button btLoad;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Control.ConMasterControl conMasterControl1;
+        private Control.ConMainControl conMainControl1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvModels;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2;
@@ -324,7 +399,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c5;
         private System.Windows.Forms.DataGridViewTextBoxColumn c6;
         private System.Windows.Forms.DataGridViewTextBoxColumn c7;
-        private Control.ConMasterControl conMasterControl1;
-        private Control.ConMainControl conMainControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private Control.ConModelTest conModelTest1;
+        private System.Windows.Forms.Button btnCalibNeedle;
     }
 }

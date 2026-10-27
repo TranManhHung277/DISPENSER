@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeachingModel));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btAdd = new System.Windows.Forms.Button();
@@ -36,8 +37,10 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.btLoad = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.conMainControl2 = new SEMV_Dispencer_V1.Control.ConMainControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageModel = new System.Windows.Forms.TabPage();
+            this.btnActive = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.nudDisY2 = new System.Windows.Forms.NumericUpDown();
             this.nudDisX1 = new System.Windows.Forms.NumericUpDown();
@@ -89,7 +92,6 @@
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.conMainControl2 = new SEMV_Dispencer_V1.Control.ConMainControl();
             this.conModelControl3 = new SEMV_Dispencer_V1.Control.ConModelControl();
             this.conAxisControl2 = new SEMV_Dispencer_V1.Control.ConAxisControl();
             this.conCoordinate2 = new SEMV_Dispencer_V1.Control.ConCoordinate();
@@ -235,6 +237,15 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(856, 432);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // conMainControl2
+            // 
+            this.conMainControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.conMainControl2.Location = new System.Drawing.Point(606, 235);
+            this.conMainControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.conMainControl2.Name = "conMainControl2";
+            this.conMainControl2.Size = new System.Drawing.Size(247, 195);
+            this.conMainControl2.TabIndex = 3;
+            // 
             // tabControl1
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.tabControl1, 2);
@@ -249,6 +260,7 @@
             // 
             // tabPageModel
             // 
+            this.tabPageModel.Controls.Add(this.btnActive);
             this.tabPageModel.Controls.Add(this.groupBox3);
             this.tabPageModel.Controls.Add(this.groupBox2);
             this.tabPageModel.Controls.Add(this.groupBox1);
@@ -261,6 +273,16 @@
             this.tabPageModel.TabIndex = 0;
             this.tabPageModel.Text = "Model";
             this.tabPageModel.UseVisualStyleBackColor = true;
+            // 
+            // btnActive
+            // 
+            this.btnActive.Location = new System.Drawing.Point(263, 7);
+            this.btnActive.Name = "btnActive";
+            this.btnActive.Size = new System.Drawing.Size(75, 23);
+            this.btnActive.TabIndex = 19;
+            this.btnActive.Text = "Active";
+            this.btnActive.UseVisualStyleBackColor = true;
+            this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
             // 
             // groupBox3
             // 
@@ -853,15 +875,6 @@
             this.Column19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Column19.Width = 73;
             // 
-            // conMainControl2
-            // 
-            this.conMainControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.conMainControl2.Location = new System.Drawing.Point(606, 235);
-            this.conMainControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.conMainControl2.Name = "conMainControl2";
-            this.conMainControl2.Size = new System.Drawing.Size(247, 195);
-            this.conMainControl2.TabIndex = 3;
-            // 
             // conModelControl3
             // 
             this.conModelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -895,6 +908,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 440);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmTeachingModel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1003,5 +1017,6 @@
         private System.Windows.Forms.NumericUpDown nudSpeed;
         private System.Windows.Forms.Label label12;
         private Control.ConModelControl conModelControl3;
+        private System.Windows.Forms.Button btnActive;
     }
 }

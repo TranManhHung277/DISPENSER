@@ -30,6 +30,7 @@ namespace SEMV_Dispencer_V1.Screen
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -40,9 +41,11 @@ namespace SEMV_Dispencer_V1.Screen
             // 
             // frmProduct1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 536);
+            this.ClientSize = new System.Drawing.Size(873, 660);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmProduct1";
             this.Text = "Chon San Pham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProduct1_FormClosing);

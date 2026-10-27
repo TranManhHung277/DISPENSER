@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using LiteDB;
 using SEMV_Dispencer_V1.Control;
 
@@ -16,6 +17,8 @@ namespace SEMV_Dispencer_V1.Screen
     {
         private int _index = 0;
         private int _id = -1;
+        public static bool _open = false; 
+        public static bool _change = false; 
         public frmTeachingModel()
         {
             InitializeComponent();
@@ -25,10 +28,12 @@ namespace SEMV_Dispencer_V1.Screen
         {
             //LoadData();
             LoadDataTable();
+            LoadListModelName();
             dgvModels.AutoGenerateColumns = false;
             dgvModels.AllowUserToAddRows = false;
             //btAdd.Enabled = RunProgram.AccessLevel == 2 ? true : false;
             //btDelete.Enabled = RunProgram.AccessLevel == 2 ? true : false;
+            _open = true;
         }
         private void LoadDataTable()
         {
@@ -175,6 +180,7 @@ namespace SEMV_Dispencer_V1.Screen
                             );
                     }    
                 }
+                LoadListModelName();
 
             }
             
@@ -242,42 +248,67 @@ namespace SEMV_Dispencer_V1.Screen
                         model.LightPrd = (int)nudLightPrd.Value;
                         model.LightGlue = (int)nudLightGlue.Value;
                         models.Update(model);
+                       
                     } 
                 }
+                if (tabControl1.SelectedIndex == 1)  LoadListModelName();
+                else LoadDataTable();
                 RunProgram.SendModelData(RunProgram.ModelActive);
+                _change = true;
             }
         }
         private void btDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result  = MessageBox.Show("Bạn có muốn xóa dữ liệu?", "Confirm!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if(tabControl1.SelectedIndex == 1)
             {
-                using (var db = new LiteDatabase(Library.cDatabase.ConStr))
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa dữ liệu?", "Confirm!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    var models = db.GetCollection<Library.cDatabase.TModel>("models");
-                    if (models.Count() > 1)
+                    using (var db = new LiteDatabase(Library.cDatabase.ConStr))
                     {
-                        models.Delete((int)dgvModels.Rows[_index].Cells[0].Value);
-                        
-                    }
-                    else MessageBox.Show("Không thể xóa Model này!");
-                }
-                LoadDataTable();
+                        var models = db.GetCollection<Library.cDatabase.TModel>("models");
+                        if (models.Count() > 1)
+                        {
+                            models.Delete((int)dgvModels.Rows[_index].Cells[0].Value);
 
-            }
+                        }
+                        else MessageBox.Show("Không thể xóa Model này!");
+                    }
+                    LoadDataTable();
+                    LoadListModelName();
+                }
+            }    
+            
             
         }
 
         private void btLoad_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(String.Format("Bạn có muốn cập nhật tọa độ vào dòng {0}?", dgvModels.Rows[_index].Cells[1].Value), "Confirm!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                dgvModels.Rows[_index].Cells[2].Value = conCoordinate1.XCoordinate;
-                dgvModels.Rows[_index].Cells[3].Value = conCoordinate1.YCoordinate;
-                dgvModels.Rows[_index].Cells[4].Value = conCoordinate1.ZCoordinate;
+                if (tabControl1.SelectedIndex == 1)
+                {
+                    DialogResult result = MessageBox.Show(String.Format("Bạn có muốn cập nhật tọa độ vào dòng {0}?", dgvModels.Rows[_index].Cells[1].Value), "Confirm!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        dgvModels.Rows[_index].Cells[2].Value = conCoordinate1.XCoordinate;
+                        dgvModels.Rows[_index].Cells[3].Value = conCoordinate1.YCoordinate;
+                        dgvModels.Rows[_index].Cells[4].Value = conCoordinate1.ZCoordinate;
+                    }
+                }
+                else
+                {
+                    nudStartX.Value = (decimal)conCoordinate1.XCoordinate;
+                    nudStartY.Value = (decimal)conCoordinate1.YCoordinate;
+                    nudStartZ.Value = (decimal)conCoordinate1.ZCoordinate;
+                }
+            }   
+            catch
+            {
 
             }
+            
+                
         }
 
         private void frmTeachingModel_FormClosing(object sender, FormClosingEventArgs e)
@@ -287,27 +318,26 @@ namespace SEMV_Dispencer_V1.Screen
             {
                 if (conModelControl3.Timer1.Enabled) conModelControl3.Timer1.Enabled = false;
                 RunProgram.LoadModelData();
-                DialogResult = DialogResult.OK;
+                _open = false;
             }
             else if (result == DialogResult.No)
             {
                 if (conModelControl3.Timer1.Enabled) conModelControl3.Timer1.Enabled = false;
-                DialogResult = DialogResult.No;
+                _open = false;
             }
             else e.Cancel = true;
         }
 
         private void cbxModel_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            LoadModel(cbxModel.Text);
         }
         private void LoadModel(string name)
         {
             using (var db = new LiteDatabase(Library.cDatabase.ConStr))
             {
-
                 var models = db.GetCollection<Library.cDatabase.TModel>("models");
-                var model = models.Find(Query("";
+                var model = models.Find(Query.EQ("ModelName",name)).FirstOrDefault();
                 nudCamID.Value = model.CamId;
                 nudStartX.Value = (decimal)model.CamISX;
                 nudStartY.Value = (decimal)model.CamISY;
@@ -323,6 +353,7 @@ namespace SEMV_Dispencer_V1.Screen
                 nudSpeed.Value = (decimal)model.SpeedCamIS;
                 nudLightPrd.Value = (decimal)model.LightPrd;
                 nudLightGlue.Value = (decimal)model.LightGlue;
+                _id = model.Id;
             }
         }
         private void LoadListModelName()
@@ -336,6 +367,13 @@ namespace SEMV_Dispencer_V1.Screen
                 cbxModel.Items.Add(models[i].ModelName);
             }
             cbxModel.SelectedIndex = activeModel;
+        }
+
+        private void btnActive_Click(object sender, EventArgs e)
+        {
+            RunProgram.ActiveModel(cbxModel.SelectedIndex);
+            LoadDataTable();
+            MessageBox.Show("Kích hoạt model thành công!");
         }
     }
 }

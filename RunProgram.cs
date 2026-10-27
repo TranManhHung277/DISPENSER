@@ -145,8 +145,8 @@ namespace SEMV_Dispencer_V1
         }
         #endregion
         #region Private Variable
-        private System.Windows.Forms.Timer _timerAsynce;
-        private System.Windows.Forms.Timer _timerCheckPLCSignal;
+        public System.Windows.Forms.Timer _timerAsynce;
+        public System.Windows.Forms.Timer _timerCheckPLCSignal;
         private static ReaderWriterLockSlim _readwriteFile = new ReaderWriterLockSlim();
         private static RunProgram _instance;
         public static RunProgram Instance
@@ -160,8 +160,8 @@ namespace SEMV_Dispencer_V1
                 return _instance;
             }
         }
-        private static Library.cAppSetting _asApp;
-        public static Library.cAppSetting AsApp
+        private static string _asApp;
+        public static string AsApp
         {
             get
             {
@@ -171,7 +171,7 @@ namespace SEMV_Dispencer_V1
                     {
                         try
                         {
-                            _asApp = JsonConvert.DeserializeObject<Library.cAppSetting>(File.ReadAllText(Library.cDatabase.fileAsApp));
+                            _asApp = JsonConvert.DeserializeObject<Library.cAppSetting>(File.ReadAllText(Library.cDatabase.fileAsApp)).FileName;
                         }
                         catch (Exception)
                         {
@@ -184,9 +184,9 @@ namespace SEMV_Dispencer_V1
                         {
                             FileName = ""
                         };
-                        _asApp = _;
+                        _asApp = _.FileName;
                         Directory.CreateDirectory(Path.GetDirectoryName(Library.cDatabase.fileAsApp));
-                        File.WriteAllText(Library.cDatabase.fileAsApp, JsonConvert.SerializeObject(_asApp));
+                        File.WriteAllText(Library.cDatabase.fileAsApp, JsonConvert.SerializeObject(_));
                     }
                 }
                 return _asApp;
@@ -194,8 +194,12 @@ namespace SEMV_Dispencer_V1
             set
             {
                 _asApp = value;
+                Library.cAppSetting _ = new Library.cAppSetting
+                {
+                    FileName = _asApp
+                };
                 if (!File.Exists(Library.cDatabase.fileAsApp)) Directory.CreateDirectory(Path.GetDirectoryName(Library.cDatabase.fileAsApp));
-                File.WriteAllText(Library.cDatabase.fileAsApp, JsonConvert.SerializeObject(_asApp));
+                File.WriteAllText(Library.cDatabase.fileAsApp, JsonConvert.SerializeObject(_));
             }
         }
         #endregion
@@ -213,11 +217,11 @@ namespace SEMV_Dispencer_V1
             _timerAsynce = new System.Windows.Forms.Timer();
             _timerAsynce.Interval = 100;
             _timerAsynce.Tick += new EventHandler(timerAsynce_Tick);
-            _timerAsynce.Start();
+            //_timerAsynce.Start();
             _timerCheckPLCSignal = new System.Windows.Forms.Timer();
             _timerCheckPLCSignal.Interval = 10;
             _timerCheckPLCSignal.Tick += new EventHandler(timerCheckPLCSignal_Tick);
-            _timerCheckPLCSignal.Start();
+            //_timerCheckPLCSignal.Start();
         }
         private void timerAsynce_Tick(object sender, EventArgs e)
         {
@@ -419,7 +423,7 @@ namespace SEMV_Dispencer_V1
         }
         public static bool CheckNeedleApp()
         {
-            if(File.Exists(AsApp.FileName)) return true;
+            if(File.Exists(AsApp)) return true;
             else
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -430,7 +434,7 @@ namespace SEMV_Dispencer_V1
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    AsApp.FileName = openFileDialog1.FileName;
+                    AsApp = openFileDialog1.FileName;
                     return true;
                 }
                 else return false;

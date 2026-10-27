@@ -50,7 +50,7 @@ namespace SEMV_Dispencer_V1.Control
         }
         private void AddRow()
         {
-            if(RunProgram._readPLC[4200] != prdCount)
+            if(RunProgram._readPLC[4200] != prdCount && arrayX1 != 0 && arrayX2 != 0 && arrayY1 != 0 && arrayY2 != 0)
             {
                 index++;
                 prdCount = RunProgram._readPLC[4200];

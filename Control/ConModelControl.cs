@@ -35,13 +35,13 @@ namespace SEMV_Dispencer_V1.Control
                 _timer1 = value;
             }
         }    
-        private async void On_Load()
+        private  void On_Load()
         {
-            await UIControl.UIButton.MaintainButton(btLightPrd, RunProgram._readPLC, 3807, 10);
-            await UIControl.UIButton.MaintainButton(btLightGlue, RunProgram._readPLC, 3807, 11);
+             UIControl.UIButton.MaintainButton(btLightPrd, RunProgram._readPLC, 3807, 10);
+             UIControl.UIButton.MaintainButton(btLightGlue, RunProgram._readPLC, 3807, 11);
 
-            await UIControl.UIButton.MaintainButton(btnLightOn, RunProgram._readPLC, 3807, 8);
-            await UIControl.UIButton.SetButton(btnToXY, RunProgram._readPLC, 3808, 2);
+             UIControl.UIButton.MaintainButton(btnLightOn, RunProgram._readPLC, 3807, 8);
+             UIControl.UIButton.SetButton(btnToXY, RunProgram._readPLC, 3808, 2);
 
         }
         private void On_Event()
@@ -49,7 +49,7 @@ namespace SEMV_Dispencer_V1.Control
             UIControl.UIButton.MaintainButtonEvent(btLightPrd, RunProgram._readPLC, 3807, 10);
             UIControl.UIButton.MaintainButtonEvent(btLightGlue, RunProgram._readPLC, 3807, 11);
            // UIControl.UIButton.SetButtonEvent(btnToXY, RunProgram._readPLC, 3808, 2);
-            UIControl.UINumberic.Int16Number(nudLight, 3590);
+            UIControl.UINumberic.Int16Number(nudLight, 3690);
             //UIControl.UINumberic.Int16Number(nudX, 3450);
             //UIControl.UINumberic.Int16Number(nudY, 3452);
 
@@ -82,7 +82,7 @@ namespace SEMV_Dispencer_V1.Control
         private void btnLightOn_Click(object sender, EventArgs e)
         {
             int[] value = new int[2] { (int)nudLight.Value, 0};
-            DeviceConnection.cMCProtocol.WriteDeviceBlock(String.Format("D{0}", 3590), 2, value, 0);
+            DeviceConnection.cMCProtocol.WriteDeviceBlock(String.Format("D{0}", 3690), 2, value, 0);
 
             var bitvalue = RunProgram._readPLC[3807] & (int)Math.Pow(2, 8);
             bool state = bitvalue > 0;

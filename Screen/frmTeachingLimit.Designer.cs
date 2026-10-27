@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeachingLimit));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.nudNeedleZ2 = new System.Windows.Forms.NumericUpDown();
@@ -42,6 +43,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.nudPrdZ2 = new System.Windows.Forms.NumericUpDown();
+            this.nudPrdZ1 = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.nudPrdA2 = new System.Windows.Forms.NumericUpDown();
             this.nudPrdA1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,9 +57,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.nudPrdZ2 = new System.Windows.Forms.NumericUpDown();
-            this.nudPrdZ1 = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNeedleZ2)).BeginInit();
@@ -65,14 +66,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNeedleX2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNeedleX1)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdA2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdY2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdY1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdX2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdX1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,9 +83,10 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(386, 201);
+            this.tabControl1.Size = new System.Drawing.Size(512, 238);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -101,10 +103,11 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(378, 155);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(504, 205);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GIới hạn XYZ Kim";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -118,14 +121,15 @@
             0,
             0,
             131072});
-            this.nudNeedleZ2.Location = new System.Drawing.Point(199, 105);
+            this.nudNeedleZ2.Location = new System.Drawing.Point(265, 129);
+            this.nudNeedleZ2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleZ2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleZ2.Name = "nudNeedleZ2";
-            this.nudNeedleZ2.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleZ2.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleZ2.TabIndex = 7;
             // 
             // nudNeedleZ1
@@ -137,23 +141,25 @@
             0,
             0,
             131072});
-            this.nudNeedleZ1.Location = new System.Drawing.Point(64, 105);
+            this.nudNeedleZ1.Location = new System.Drawing.Point(85, 129);
+            this.nudNeedleZ1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleZ1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleZ1.Name = "nudNeedleZ1";
-            this.nudNeedleZ1.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleZ1.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleZ1.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 107);
+            this.label5.Location = new System.Drawing.Point(25, 132);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 17);
+            this.label5.Size = new System.Drawing.Size(18, 20);
             this.label5.TabIndex = 5;
             this.label5.Text = "Z";
             // 
@@ -166,14 +172,15 @@
             0,
             0,
             131072});
-            this.nudNeedleY2.Location = new System.Drawing.Point(199, 72);
+            this.nudNeedleY2.Location = new System.Drawing.Point(265, 89);
+            this.nudNeedleY2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleY2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleY2.Name = "nudNeedleY2";
-            this.nudNeedleY2.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleY2.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleY2.TabIndex = 4;
             // 
             // nudNeedleY1
@@ -185,23 +192,25 @@
             0,
             0,
             131072});
-            this.nudNeedleY1.Location = new System.Drawing.Point(64, 72);
+            this.nudNeedleY1.Location = new System.Drawing.Point(85, 89);
+            this.nudNeedleY1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleY1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleY1.Name = "nudNeedleY1";
-            this.nudNeedleY1.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleY1.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleY1.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 74);
+            this.label4.Location = new System.Drawing.Point(25, 91);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 17);
+            this.label4.Size = new System.Drawing.Size(19, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Y";
             // 
@@ -214,14 +223,15 @@
             0,
             0,
             131072});
-            this.nudNeedleX2.Location = new System.Drawing.Point(199, 39);
+            this.nudNeedleX2.Location = new System.Drawing.Point(265, 48);
+            this.nudNeedleX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleX2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleX2.Name = "nudNeedleX2";
-            this.nudNeedleX2.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleX2.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleX2.TabIndex = 1;
             // 
             // nudNeedleX1
@@ -233,23 +243,25 @@
             0,
             0,
             131072});
-            this.nudNeedleX1.Location = new System.Drawing.Point(64, 39);
+            this.nudNeedleX1.Location = new System.Drawing.Point(85, 48);
+            this.nudNeedleX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudNeedleX1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudNeedleX1.Name = "nudNeedleX1";
-            this.nudNeedleX1.Size = new System.Drawing.Size(120, 23);
+            this.nudNeedleX1.Size = new System.Drawing.Size(160, 27);
             this.nudNeedleX1.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(205, 12);
+            this.label3.Location = new System.Drawing.Point(273, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 17);
+            this.label3.Size = new System.Drawing.Size(107, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Giới hạn dưới";
             // 
@@ -257,9 +269,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 12);
+            this.label2.Location = new System.Drawing.Point(96, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 17);
+            this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Giới hạn trên";
             // 
@@ -267,9 +280,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 41);
+            this.label1.Location = new System.Drawing.Point(25, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 17);
+            this.label1.Size = new System.Drawing.Size(20, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "X";
             // 
@@ -289,13 +303,65 @@
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(378, 171);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Size = new System.Drawing.Size(507, 214);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Giới hạn XYZA Sản Phẩm";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // nudPrdZ2
+            // 
+            this.nudPrdZ2.DecimalPlaces = 2;
+            this.nudPrdZ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudPrdZ2.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.nudPrdZ2.Location = new System.Drawing.Point(265, 169);
+            this.nudPrdZ2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPrdZ2.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.nudPrdZ2.Name = "nudPrdZ2";
+            this.nudPrdZ2.Size = new System.Drawing.Size(160, 27);
+            this.nudPrdZ2.TabIndex = 21;
+            // 
+            // nudPrdZ1
+            // 
+            this.nudPrdZ1.DecimalPlaces = 2;
+            this.nudPrdZ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudPrdZ1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.nudPrdZ1.Location = new System.Drawing.Point(85, 169);
+            this.nudPrdZ1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPrdZ1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.nudPrdZ1.Name = "nudPrdZ1";
+            this.nudPrdZ1.Size = new System.Drawing.Size(160, 27);
+            this.nudPrdZ1.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(25, 171);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 20);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Z";
             // 
             // nudPrdA2
             // 
@@ -306,14 +372,15 @@
             0,
             0,
             131072});
-            this.nudPrdA2.Location = new System.Drawing.Point(199, 105);
+            this.nudPrdA2.Location = new System.Drawing.Point(265, 129);
+            this.nudPrdA2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdA2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdA2.Name = "nudPrdA2";
-            this.nudPrdA2.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdA2.Size = new System.Drawing.Size(160, 27);
             this.nudPrdA2.TabIndex = 18;
             // 
             // nudPrdA1
@@ -325,23 +392,25 @@
             0,
             0,
             131072});
-            this.nudPrdA1.Location = new System.Drawing.Point(64, 105);
+            this.nudPrdA1.Location = new System.Drawing.Point(85, 129);
+            this.nudPrdA1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdA1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdA1.Name = "nudPrdA1";
-            this.nudPrdA1.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdA1.Size = new System.Drawing.Size(160, 27);
             this.nudPrdA1.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 107);
+            this.label6.Location = new System.Drawing.Point(25, 132);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 17);
+            this.label6.Size = new System.Drawing.Size(20, 20);
             this.label6.TabIndex = 16;
             this.label6.Text = "A";
             // 
@@ -354,14 +423,15 @@
             0,
             0,
             131072});
-            this.nudPrdY2.Location = new System.Drawing.Point(199, 72);
+            this.nudPrdY2.Location = new System.Drawing.Point(265, 89);
+            this.nudPrdY2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdY2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdY2.Name = "nudPrdY2";
-            this.nudPrdY2.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdY2.Size = new System.Drawing.Size(160, 27);
             this.nudPrdY2.TabIndex = 15;
             // 
             // nudPrdY1
@@ -373,23 +443,25 @@
             0,
             0,
             131072});
-            this.nudPrdY1.Location = new System.Drawing.Point(64, 72);
+            this.nudPrdY1.Location = new System.Drawing.Point(85, 89);
+            this.nudPrdY1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdY1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdY1.Name = "nudPrdY1";
-            this.nudPrdY1.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdY1.Size = new System.Drawing.Size(160, 27);
             this.nudPrdY1.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 74);
+            this.label7.Location = new System.Drawing.Point(25, 91);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 17);
+            this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 13;
             this.label7.Text = "Y";
             // 
@@ -402,14 +474,15 @@
             0,
             0,
             131072});
-            this.nudPrdX2.Location = new System.Drawing.Point(199, 39);
+            this.nudPrdX2.Location = new System.Drawing.Point(265, 48);
+            this.nudPrdX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdX2.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdX2.Name = "nudPrdX2";
-            this.nudPrdX2.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdX2.Size = new System.Drawing.Size(160, 27);
             this.nudPrdX2.TabIndex = 11;
             // 
             // nudPrdX1
@@ -421,23 +494,25 @@
             0,
             0,
             131072});
-            this.nudPrdX1.Location = new System.Drawing.Point(64, 39);
+            this.nudPrdX1.Location = new System.Drawing.Point(85, 48);
+            this.nudPrdX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudPrdX1.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudPrdX1.Name = "nudPrdX1";
-            this.nudPrdX1.Size = new System.Drawing.Size(120, 23);
+            this.nudPrdX1.Size = new System.Drawing.Size(160, 27);
             this.nudPrdX1.TabIndex = 12;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(205, 12);
+            this.label8.Location = new System.Drawing.Point(273, 15);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 17);
+            this.label8.Size = new System.Drawing.Size(107, 20);
             this.label8.TabIndex = 8;
             this.label8.Text = "Giới hạn dưới";
             // 
@@ -445,9 +520,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(72, 12);
+            this.label9.Location = new System.Drawing.Point(96, 15);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 17);
+            this.label9.Size = new System.Drawing.Size(105, 20);
             this.label9.TabIndex = 9;
             this.label9.Text = "Giới hạn trên";
             // 
@@ -455,70 +531,25 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(19, 41);
+            this.label10.Location = new System.Drawing.Point(25, 50);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(17, 17);
+            this.label10.Size = new System.Drawing.Size(20, 20);
             this.label10.TabIndex = 10;
             this.label10.Text = "X";
             // 
-            // nudPrdZ2
-            // 
-            this.nudPrdZ2.DecimalPlaces = 2;
-            this.nudPrdZ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudPrdZ2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nudPrdZ2.Location = new System.Drawing.Point(199, 137);
-            this.nudPrdZ2.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.nudPrdZ2.Name = "nudPrdZ2";
-            this.nudPrdZ2.Size = new System.Drawing.Size(120, 23);
-            this.nudPrdZ2.TabIndex = 21;
-            // 
-            // nudPrdZ1
-            // 
-            this.nudPrdZ1.DecimalPlaces = 2;
-            this.nudPrdZ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudPrdZ1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nudPrdZ1.Location = new System.Drawing.Point(64, 137);
-            this.nudPrdZ1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.nudPrdZ1.Name = "nudPrdZ1";
-            this.nudPrdZ1.Size = new System.Drawing.Size(120, 23);
-            this.nudPrdZ1.TabIndex = 20;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(19, 139);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(17, 17);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Z";
-            // 
             // frmTeachingLimit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 201);
+            this.ClientSize = new System.Drawing.Size(512, 238);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(402, 240);
+            this.MaximumSize = new System.Drawing.Size(530, 285);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(402, 240);
+            this.MinimumSize = new System.Drawing.Size(530, 285);
             this.Name = "frmTeachingLimit";
             this.Text = "Cài đặt Giới Hạn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTeachingLimit_FormClosing);
@@ -534,14 +565,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNeedleX1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdA2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdA1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdY2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdY1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdX2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrdX1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrdZ1)).EndInit();
             this.ResumeLayout(false);
 
         }

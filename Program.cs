@@ -12,7 +12,7 @@ namespace SEMV_Dispencer_V1
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static Mutex mutex = new Mutex(true, "{8F6F0AC4-B9A1-45fd-A8CF-72F04E6BDEEE}");
+        static Mutex mutex = new Mutex(true, "{8F6F0AC4-B9A1-45fd-A8CF-72F04E6BDEEEF}");
         [STAThread]
         static void Main()
         {

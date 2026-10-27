@@ -17,7 +17,7 @@ namespace SEMV_Dispencer_V1.Screen
         {
             InitializeComponent();
         }
-        
+        public static bool _open = false;
         private void frmTeachingLimit_Load(object sender, EventArgs e)
         {
             var data = RunProgram.Data;
@@ -35,6 +35,7 @@ namespace SEMV_Dispencer_V1.Screen
             nudPrdA2.Value =(decimal)data.LimitISA2;
             nudPrdZ1.Value =(decimal)data.LimitISZ1;
             nudPrdZ2.Value =(decimal)data.LimitISZ2;
+            _open = true;
         }
 
         private void frmTeachingLimit_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,11 +65,11 @@ namespace SEMV_Dispencer_V1.Screen
                     d.Update(data);
                 }
                 RunProgram.SendLimitData();
-
+                _open = false;
             }
             else if (result == DialogResult.No)
             {
-               
+                _open = false;
             }
             else e.Cancel = true;
         }

@@ -18,11 +18,11 @@ namespace SEMV_Dispencer_V1.Control
             RunProgram.Instance.OnStartUp += On_Load;
             On_Event();
         }
-        private async void On_Load()
+        private  void On_Load()
         {
-            await UIControl.UIButton.SetButton(btReturn, RunProgram._readPLC, 3800, 0);
-            await UIControl.UIButton.MomenteryButton(btReset, RunProgram._readPLC, 3800, 2);
-            await UIControl.UIButton.MaintainButton(btAuto, RunProgram._readPLC, 3800, 1);
+             UIControl.UIButton.SetButton(btReturn, RunProgram._readPLC, 3800, 0);
+             UIControl.UIButton.MomenteryButton(btReset, RunProgram._readPLC, 3800, 2);
+             UIControl.UIButton.MaintainButton(btAuto, RunProgram._readPLC, 3800, 1);
 
         }
         private void On_Event()

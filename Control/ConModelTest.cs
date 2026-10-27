@@ -18,17 +18,17 @@ namespace SEMV_Dispencer_V1.Control
             RunProgram.Instance.OnStartUp += On_Load;
             On_Event();
         }
-        private async void On_Load()
+        private  void On_Load()
         {
-            await UIControl.UIButton.SetButton(btnCheckZNozze, RunProgram._readPLC, 3807, 4);//3590
-            await UIControl.UIButton.SetButton(btnCheckXYNozzle, RunProgram._readPLC, 3807, 5);//3590
+             UIControl.UIButton.SetButton(btnCheckZNozze, RunProgram._readPLC, 3807, 4);//3690
+             UIControl.UIButton.SetButton(btnCheckXYNozzle, RunProgram._readPLC, 3807, 5);//3690
 
         }
         private void On_Event()
         {
 
-            UIControl.UIButton.SetButtonEvent(btnCheckZNozze, RunProgram._readPLC, 3807, 4);//3590
-            UIControl.UIButton.SetButtonEvent(btnCheckXYNozzle, RunProgram._readPLC, 3807, 5);//3590
+            UIControl.UIButton.SetButtonEvent(btnCheckZNozze, RunProgram._readPLC, 3807, 4);//3690
+            UIControl.UIButton.SetButtonEvent(btnCheckXYNozzle, RunProgram._readPLC, 3807, 5);//3690
 
         }
         private void btnCheckXYPrd_Click(object sender, EventArgs e)
